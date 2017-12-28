@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StreamingTableViewController.swift
 //  SwiftStreaming
 //
 //  Created by Renu Punjabi on 12/27/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StreamingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

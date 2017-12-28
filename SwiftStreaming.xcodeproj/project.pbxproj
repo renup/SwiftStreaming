@@ -14,6 +14,7 @@
 		D79B6B1A1FF478B20073B8F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79B6B181FF478B20073B8F2 /* LaunchScreen.storyboard */; };
 		D79B6B251FF478B20073B8F2 /* SwiftStreamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B241FF478B20073B8F2 /* SwiftStreamingTests.swift */; };
 		D79B6B301FF478B20073B8F2 /* SwiftStreamingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B2F1FF478B20073B8F2 /* SwiftStreamingUITests.swift */; };
+		D79B6B3F1FF47B7C0073B8F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D79B6B2B1FF478B20073B8F2 /* SwiftStreamingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStreamingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79B6B2F1FF478B20073B8F2 /* SwiftStreamingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStreamingUITests.swift; sourceTree = "<group>"; };
 		D79B6B311FF478B20073B8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		D79B6B0E1FF478B20073B8F2 /* SwiftStreaming */ = {
 			isa = PBXGroup;
 			children = (
+				D79B6B3D1FF47B400073B8F2 /* Model Files */,
 				D79B6B0F1FF478B20073B8F2 /* AppDelegate.swift */,
 				D79B6B111FF478B20073B8F2 /* StreamingTableViewController.swift */,
 				D79B6B131FF478B20073B8F2 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				D79B6B311FF478B20073B8F2 /* Info.plist */,
 			);
 			path = SwiftStreamingUITests;
+			sourceTree = "<group>";
+		};
+		D79B6B3D1FF47B400073B8F2 /* Model Files */ = {
+			isa = PBXGroup;
+			children = (
+				D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */,
+			);
+			path = "Model Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79B6B3F1FF47B7C0073B8F2 /* NetworkManager.swift in Sources */,
 				D79B6B121FF478B20073B8F2 /* StreamingTableViewController.swift in Sources */,
 				D79B6B101FF478B20073B8F2 /* AppDelegate.swift in Sources */,
 			);

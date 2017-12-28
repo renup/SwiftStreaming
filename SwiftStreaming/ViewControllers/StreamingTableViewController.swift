@@ -8,8 +8,13 @@
 
 import UIKit
 
-class StreamingTableViewController: UITableViewController {
+protocol StreamingTableViewControllerDelegate: class {
+    func receivedNewData()
+}
 
+class StreamingTableViewController: UITableViewController {
+    weak var delegate: StreamingTableViewControllerDelegate?
+    
     var dataSource: NSDictionary? {
         didSet {
            tableView.reloadData()
@@ -36,11 +41,20 @@ class StreamingTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource?.count
+        guard let data = dataSource else {
+            return 0
+        }
+        return data.count
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell")
+        if let data = dataSource {
+            cell?.textLabel?.text = String(describing: data[indexPath.row])
+        }
+        
+        return cell!
     }
     
 }

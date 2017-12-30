@@ -17,6 +17,7 @@
 		D79B6B3F1FF47B7C0073B8F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */; };
 		D79B6B421FF487EF0073B8F2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B411FF487EF0073B8F2 /* AppCoordinator.swift */; };
 		D79B6B441FF4880B0073B8F2 /* StreamingDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B431FF4880B0073B8F2 /* StreamingDataCoordinator.swift */; };
+		D79B6B471FF491370073B8F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B461FF491370073B8F2 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D79B6B411FF487EF0073B8F2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D79B6B431FF4880B0073B8F2 /* StreamingDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingDataCoordinator.swift; sourceTree = "<group>"; };
+		D79B6B461FF491370073B8F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +105,9 @@
 		D79B6B0E1FF478B20073B8F2 /* SwiftStreaming */ = {
 			isa = PBXGroup;
 			children = (
+				D79B6B0F1FF478B20073B8F2 /* AppDelegate.swift */,
 				D79B6B401FF487D50073B8F2 /* Coordinators */,
 				D79B6B3D1FF47B400073B8F2 /* Model Files */,
-				D79B6B0F1FF478B20073B8F2 /* AppDelegate.swift */,
 				D79B6B451FF488330073B8F2 /* ViewControllers */,
 				D79B6B131FF478B20073B8F2 /* Main.storyboard */,
 				D79B6B161FF478B20073B8F2 /* Assets.xcassets */,
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */,
+				D79B6B461FF491370073B8F2 /* User.swift */,
 			);
 			path = "Model Files";
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				D79B6B421FF487EF0073B8F2 /* AppCoordinator.swift in Sources */,
 				D79B6B441FF4880B0073B8F2 /* StreamingDataCoordinator.swift in Sources */,
+				D79B6B471FF491370073B8F2 /* User.swift in Sources */,
 				D79B6B3F1FF47B7C0073B8F2 /* NetworkManager.swift in Sources */,
 				D79B6B121FF478B20073B8F2 /* StreamingTableViewController.swift in Sources */,
 				D79B6B101FF478B20073B8F2 /* AppDelegate.swift in Sources */,

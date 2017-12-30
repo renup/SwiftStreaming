@@ -15,7 +15,7 @@ protocol StreamingTableViewControllerDelegate: class {
 class StreamingTableViewController: UITableViewController {
     weak var delegate: StreamingTableViewControllerDelegate?
     
-    var dataSource: NSDictionary? {
+    var dataSource: [User]? {
         didSet {
            tableView.reloadData()
         }
@@ -23,16 +23,9 @@ class StreamingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStreamingData()
     }
     
-    func getStreamingData(){
-        if NetworkManager.shared.isStreaming {
-            NetworkManager.shared.stopStreaming()
-        } else {
-            NetworkManager.shared.startStreaming()
-        }
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,7 +44,9 @@ class StreamingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell")
         if let data = dataSource {
-            cell?.textLabel?.text = String(describing: data[indexPath.row])
+            let userInfo = data[indexPath.row] as User
+            cell?.textLabel?.text = userInfo.userName!
+            //userInfo.userName! + " and " + userInfo.friendName! + " are " + userInfo.isFriend! + " " + userInfo.timeStamp!
         }
         
         return cell!

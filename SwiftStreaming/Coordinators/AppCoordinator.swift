@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import UIKit
+
+class AppCoordinator: NSObject {
+    var navigationVC: UINavigationController!
+    var streamingDataCoordinator: StreamingDataCoordinator?
+    
+    init(navigationVC: UINavigationController) {
+        self.navigationVC = navigationVC
+    }
+    
+    func start() {
+        streamingDataCoordinator = StreamingDataCoordinator(navigationVC: navigationVC)
+        streamingDataCoordinator?.start()
+    }
+}

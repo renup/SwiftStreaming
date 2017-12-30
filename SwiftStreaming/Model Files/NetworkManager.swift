@@ -7,15 +7,30 @@
 //
 
 import Foundation
+//typealias completionHandler = ((_ response: Any?) -> Void)
+
+protocol NetworkManagerDelegate: class {
+    func didReceiveData(responseData: Data)
+}
 
 class NetworkManager : NSObject, URLSessionDataDelegate {
 
-    static var shared = NetworkManager()
+    static let shared = NetworkManager()
     private var session: URLSession! = nil
     private var streamingTask: URLSessionDataTask? = nil
     var isStreaming: Bool { return self.streamingTask != nil }
     var outputStream: OutputStream? = nil
-    
+//    public var didReceiveResponse: ((URLSession, URLSessionDataTask, URLResponse) -> URLSession.ResponseDisposition)?
+    var value: NetworkManagerDelegate?
+    weak var delegate: NetworkManagerDelegate? {
+        set {
+          value = newValue
+        }
+        get {
+            return value
+        }
+    }
+
     override init() {
         super.init()
         let config = URLSessionConfiguration.default
@@ -27,7 +42,7 @@ class NetworkManager : NSObject, URLSessionDataDelegate {
     
     func startStreaming() {
         precondition( !self.isStreaming )
-        let url = URL(string: "https://hp-server-toy.herokuapp.com/?since=20171227")!
+        let url = URL(string: "https://hp-server-toy.herokuapp.com/?since=20171229")!
         let request = URLRequest(url: url)//SAME
         
         let task = self.session.dataTask(with: request)
@@ -37,13 +52,28 @@ class NetworkManager : NSObject, URLSessionDataDelegate {
         task.resume() //SAME
     }
     
+    
+//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+//        var disposition: URLSession.ResponseDisposition = .allow
+//        if let didReceiveResponse = didReceiveResponse {
+//            disposition = didReceiveResponse(session, dataTask, response)
+//        }
+//        completionHandler(disposition)
+//    }
+    
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        print("Now description")
+        
+        
+        print("##################################")
+        print("data = \(data)")
+        print("##################################")
+        
+        delegate?.didReceiveData(responseData: data)
         
         // NEW - try printing just data also if you like
-        if let responseText = String(data: data, encoding: .utf8) {
-            print(responseText)
-        }
+//        if let responseText = String(data: data, encoding: .utf8) {
+//            print(responseText)
+//        }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {

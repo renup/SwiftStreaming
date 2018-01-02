@@ -25,6 +25,6 @@ struct User {
             friendName = toDict["name"] as? String
         }
         isFriend = userDictionary["areFriends"] as? Bool
-        timeStamp = userDictionary["timeStamp"] as? String
+        timeStamp = userDictionary["timestamp"] as? String
     }
 }

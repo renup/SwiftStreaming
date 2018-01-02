@@ -15,9 +15,14 @@ protocol StreamingTableViewControllerDelegate: class {
 class StreamingTableViewController: UITableViewController {
     weak var delegate: StreamingTableViewControllerDelegate?
     
-    var dataSource: [User]? {
+    var dataSource: SynchronizedArray<User>? {
         didSet {
-           tableView.reloadData()
+            tableView.reloadData()
+//            tableView.beginUpdates()
+//            if let indexPaths = tableView.indexPathsForVisibleRows {
+//                tableView.reloadRows(at: indexPaths, with: .none)
+//            }
+//            tableView.endUpdates()
         }
     }
     
@@ -44,8 +49,8 @@ class StreamingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell")
         if let data = dataSource {
-            let userInfo = data[indexPath.row] as User
-            cell?.textLabel?.text = userInfo.userName!
+            let userInfo = data[indexPath.row] as! User
+            cell?.textLabel?.text = userInfo.userName! + indexPath.row.description
             //userInfo.userName! + " and " + userInfo.friendName! + " are " + userInfo.isFriend! + " " + userInfo.timeStamp!
         }
         

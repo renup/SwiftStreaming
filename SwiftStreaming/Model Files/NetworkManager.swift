@@ -41,15 +41,15 @@ class NetworkManager : NSObject, URLSessionDataDelegate {
     }
     
     func startStreaming() {
-        precondition( !self.isStreaming )
-        let url = URL(string: "https://hp-server-toy.herokuapp.com/?since=20171229")!
-        let request = URLRequest(url: url)//SAME
-        
-        let task = self.session.dataTask(with: request)
-        //uploadTask(withStreamedRequest: request)
-        
-        self.streamingTask = task
-        task.resume() //SAME
+            precondition( !self.isStreaming )
+            let url = URL(string: "https://hp-server-toy.herokuapp.com/?since=20171230")!
+            let request = URLRequest(url: url)//SAME
+            
+            let task = self.session.dataTask(with: request)
+            //uploadTask(withStreamedRequest: request)
+            
+            self.streamingTask = task
+            task.resume() //SAME
     }
     
     
@@ -62,13 +62,13 @@ class NetworkManager : NSObject, URLSessionDataDelegate {
 //    }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        
-        
         print("##################################")
         print("data = \(data)")
         print("##################################")
         
+        // TODO: ENSURE THAT THIS DELEGATE LINE IS SYNCHRONIZED
         delegate?.didReceiveData(responseData: data)
+        
         
         // NEW - try printing just data also if you like
 //        if let responseText = String(data: data, encoding: .utf8) {

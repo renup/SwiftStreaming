@@ -12,6 +12,14 @@ class StreamingDataCoordinator: NSObject {
     var navigationVC: UINavigationController!
     var streamingTableVC: StreamingTableViewController?
     let networkManager = NetworkManager.shared
+//    var userArray = [User]()
+    var userArray = SynchronizedArray<User>()
+
+   // fileprivate let concurrentPhotoQueue =
+//        DispatchQueue(
+//            label: "com.cocoateam.SwiftStreaming.dataQueue",
+//            attributes: .concurrent)
+    
     
     init(navigationVC: UINavigationController){
         self.navigationVC = navigationVC
@@ -35,7 +43,12 @@ class StreamingDataCoordinator: NSObject {
 }
 
 extension StreamingDataCoordinator: NetworkManagerDelegate {
+    
     func didReceiveData(responseData: Data) {
+        
+        // start a new thread here that takes care of everything
+//        concurrentPhotoQueue.async(flags: .barrier) {
+
         guard var newText = String(data: responseData, encoding: .utf8) else {
             return
         }
@@ -47,21 +60,26 @@ extension StreamingDataCoordinator: NetworkManagerDelegate {
         let newData = newText.data(using: String.Encoding.utf8)
         guard newData != nil else { return }
 
-        processReceivedData(responseData: newData!)
+        self.processReceivedData(responseData: newData!)
+        //}
     }
     
     func processReceivedData(responseData: Data) {
-        var userArray = [User]()
 
         if let array = convertToArray(data: responseData) {
             for item in array {
                 if item is NSDictionary {
                     let user = User(userDictionary: item as! NSDictionary)
+                    
+                    // TODO: ENSURE THIS ARRAY IS SYNCHRONIZED
                     userArray.append(user)
                 }
             }
         }
-        streamingTableVC?.dataSource = userArray
+        
+        DispatchQueue.main.async {
+            self.streamingTableVC?.dataSource = self.userArray
+        }
     }
     
     func convertToArray(data: Data) -> [Any]? {

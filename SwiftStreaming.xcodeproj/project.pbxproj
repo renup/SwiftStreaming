@@ -18,6 +18,7 @@
 		D79B6B421FF487EF0073B8F2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B411FF487EF0073B8F2 /* AppCoordinator.swift */; };
 		D79B6B441FF4880B0073B8F2 /* StreamingDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B431FF4880B0073B8F2 /* StreamingDataCoordinator.swift */; };
 		D79B6B471FF491370073B8F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B461FF491370073B8F2 /* User.swift */; };
+		D79B6B491FFC238C0073B8F2 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B6B481FFC238C0073B8F2 /* SynchronizedArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D79B6B411FF487EF0073B8F2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D79B6B431FF4880B0073B8F2 /* StreamingDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingDataCoordinator.swift; sourceTree = "<group>"; };
 		D79B6B461FF491370073B8F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D79B6B481FFC238C0073B8F2 /* SynchronizedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		D79B6B3D1FF47B400073B8F2 /* Model Files */ = {
 			isa = PBXGroup;
 			children = (
+				D79B6B481FFC238C0073B8F2 /* SynchronizedArray.swift */,
 				D79B6B3E1FF47B7C0073B8F2 /* NetworkManager.swift */,
 				D79B6B461FF491370073B8F2 /* User.swift */,
 			);
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D79B6B421FF487EF0073B8F2 /* AppCoordinator.swift in Sources */,
+				D79B6B491FFC238C0073B8F2 /* SynchronizedArray.swift in Sources */,
 				D79B6B441FF4880B0073B8F2 /* StreamingDataCoordinator.swift in Sources */,
 				D79B6B471FF491370073B8F2 /* User.swift in Sources */,
 				D79B6B3F1FF47B7C0073B8F2 /* NetworkManager.swift in Sources */,
